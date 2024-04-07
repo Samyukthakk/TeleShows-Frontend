@@ -1,0 +1,68 @@
+<div class="flex filterContainer">
+  <div class="flex searchContainer">
+    <div>
+      <span class="p-input-icon-left flex">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          class="searchInput"
+          pInputText
+          [(ngModel)]="searchval"
+          (ngModelChange)="searchItem()"
+        />
+      </span>
+    </div>
+    <div class="flex dropdownContainer">
+      <div>
+        <app-filter
+          [options]="genreDataProvider"
+          placeHolderLabel="Select Genre"
+          (selectedItem)="onChangeGenre($event)"
+        ></app-filter>
+        <app-filter
+          [options]="ratingDataProvider"
+          placeHolderLabel="Sort Rating"
+          (selectedItem)="onChangeSort($event)"
+        ></app-filter>
+      </div>
+      <p-button label="Add Show" (click)="showAddModel()"></p-button>
+    </div>
+  </div>
+</div>
+
+<div class="cardContainer">
+  <div class="card" *ngFor="let show of showList">
+    <div class="cardContent">
+      <div class="deleteBtnContainer">
+        <img
+          src="../../assets/trash.png"
+          class="deleteBtn"
+          (click)="deleteShow(show)"
+        />
+      </div>
+      <img
+        [src]="getImagePath(show)"
+        class="showImg"
+        (click)="showEditDetails(show)"
+      />
+      <label class="showTitle">{{ show.name }}</label>
+      <div>
+        <p-rating
+          [ngModel]="show.rating"
+          [readonly]="true"
+          [cancel]="false"
+        ></p-rating>
+      </div>
+      <label>Duration: {{ show.duration }} hrs</label>
+    </div>
+  </div>
+</div>
+
+<app-add-edit-show
+  [displayAddModal]="displayAddModal"
+  (clickClose)="hideAddModal($event)"
+  (clickAdd)="saveShowToList($event)"
+  [selectedShowToEdit]="selectedShowToEdit"
+></app-add-edit-show>
+
+<p-toast position="top-right"></p-toast>

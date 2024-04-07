@@ -1,0 +1,43 @@
+<p-dialog
+header="{{formType}} Show"
+[(visible)]="displayAddModal"
+[modal]="true"
+[style]="{ width: '50rem' }"
+[draggable]="false"
+[resizable]="false"
+(onHide)="closeModal() ">
+
+    <form [formGroup]="movieForm" class="movie-form">
+            <div class="field">
+            <label class="block" >Name</label>
+            <input type="text" pInputText formControlName="name" />
+            <small  *ngIf="movieForm.controls['name'].dirty &&  movieForm.controls['name'].invalid" class="p-error block">Username is not available.</small>
+        </div>
+        <div class="field">
+            <label class="block"> Description</label>
+            <input type="text" pInputText formControlName="description"/>
+            <small  *ngIf="movieForm.controls['description'].dirty &&  movieForm.controls['description'].invalid" class="p-error block">Description is not available.</small>
+        </div>
+        <div class="field ">
+            <label class="block" >Duration in hrs</label>
+            <p-inputNumber inputId="integeronly" formControlName="duration" class="block" buttonLayout="horizontal"></p-inputNumber>
+            <small  *ngIf="movieForm.controls['duration'].dirty &&  movieForm.controls['duration'].invalid" class="p-error block">Duration is not available.</small>
+        </div>
+        <div class="field">
+            <label class="block" >Rating</label>
+            <p-rating formControlName="rating"></p-rating>
+            <small  *ngIf="movieForm.controls['rating'].dirty &&  movieForm.controls['rating'].invalid" class="p-error block">Rating is not available.</small>
+        </div>
+        <div class="field">
+            <label class="block" >Genre</label>
+            <p-dropdown formControlName="genre" [options]="genreList" optionLabel="name" placeholder="Select Genre" class="block"></p-dropdown>
+            <small  *ngIf="movieForm.controls['genre'].dirty &&  movieForm.controls['genre'].invalid" class="p-error block">Genre is not available.</small>
+        </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <p-button (click)="closeModal()" label="Cancel" styleClass="p-button-text"></p-button>
+        <p-button (click)="addEditShow()" label="{{formType}}" [disabled]="movieForm.invalid" styleClass="p-button-text"></p-button>
+
+    </ng-template>
+</p-dialog>
