@@ -112,7 +112,7 @@ export class ShowComponent implements OnInit {
         return '../../assets/romance.png';
       case 'Thriller':
         return '../../assets/thriller.png';
-      case 'Whodunit':
+      case 'Whodunnit':
         return '../../assets/whodunit.png';
       case 'Horror':
         return '../../assets/horror.png';
@@ -126,7 +126,7 @@ export class ShowComponent implements OnInit {
       this.showList = [...this.showData];
     } else {
       this.showList = this.showData.filter((show: ShowDTO) =>
-        show.name?.toLowerCase().match(this.searchval)
+        show.name?.toLowerCase().match(this.searchval.toLowerCase())
       );
     }
   }
