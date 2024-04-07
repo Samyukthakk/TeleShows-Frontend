@@ -6,13 +6,13 @@ It has the feature of edit, delete, search, sort and filter.
 Based on the values provided by the user, the application displays the list.
 
 Validations:
-	1.A form with 5 input validations.
-	* Validations:	
-    		* The Name and Description must be an string.
-    		* The Duration must be a numeric value.
-    		* The Rating should not be empty.
-    		* The Genre must be selected.
-    		* The Add will be disabled until the form validations are met. 	
+
+	 A form with 5 input validations.
+   	* The Name and Description must be an string.
+    * The Duration must be a numeric value.
+    * The Rating should not be empty.
+    * The Genre must be selected.
+    * The Add will be disabled until the form validations are met. 	
 
  # To Run this application
    	1.CLone the repository
@@ -21,5 +21,9 @@ Validations:
     4.run ng serve
     5.open the application in port 4200
     
- # To Run Docker
+ # To run via Docker
+    1.docker pull samyukthakirankumar/practice:teleservice-frontend
+    2.docker pull samyukthakirankumar/practice:teleservice-backend
+    3.docker run -d -p 9229:9229 --name=teleservice-backend samyukthakirankumar/practice:teleservice-backend
+    4.docker run -d -p 8080:80 --name=teleservice-frontend samyukthakirankumar/practice:teleservice-frontend
   
