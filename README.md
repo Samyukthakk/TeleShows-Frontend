@@ -14,16 +14,17 @@ Validations:
     * The Genre must be selected.
     * The Add will be disabled until the form validations are met. 	
 
- # To Run this application
+ # To run the application locally from an IDE
    	1.CLone the repository
     2.Open terminal
-    3.run npm install
-    4.run ng serve
-    5.open the application in port 4200
+    3.npm install
+    4.ng serve
+    5.Open the application at http://localhost:4200
     
  # To run via Docker
     1.docker pull samyukthakirankumar/practice:teleservice-frontend
     2.docker pull samyukthakirankumar/practice:teleservice-backend
     3.docker run -d -p 9229:9229 --name=teleservice-backend samyukthakirankumar/practice:teleservice-backend
     4.docker run -d -p 8080:80 --name=teleservice-frontend samyukthakirankumar/practice:teleservice-frontend
+    5.Open the application at http://localhost:8080
   
